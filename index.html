@@ -3,14 +3,23 @@
 <head>
 	<meta charset="utf-8">
 	<script>
-		// TODO: create a handler
+		let actions = {
+   			"google": "https://www.google.com/",
+			"duckDuckGo": "https://duckduckgo.com/",
+			"bing": "https://www.bing.com/search",
+			"ask": "https://www.ask.com/web"
+		};
+	function setSearchEngine() {
+		let input = document.querySelector("input[name=engine]:checked");
+		let selectedEngine = input.value;
+		let url = actions[selectedEngine]
+		let searchForm = document.getElementById("searchForm")
+		searchForm.setAttribute("action", url)	
+		
+			}
     window.addEventListener("load", function(){
-		let button = document.getElementById("go")
-		button.addEventListener("click", function() {
-			let input=document.getElementsByName("q")
-			console.log(input)
-		})
-        console.log("hello, world!")
+		let button = document.getElementById("go");
+		button.addEventListener("click", setSearchEngine);
     });
 	</script>
 </head>
